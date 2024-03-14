@@ -1,54 +1,61 @@
-# loam_velodyne
-
-![Screenshot](/capture.bmp)
-Sample map built from [nsh_indoor_outdoor.bag](http://www.frc.ri.cmu.edu/~jizhang03/Datasets/nsh_indoor_outdoor.bag) (opened with [ccViewer](http://www.danielgm.net/cc/))
-
-:white_check_mark: Tested with ROS Indigo and Velodyne VLP16. [(Screencast)](https://youtu.be/o1cLXY-Es54)
-
-All sources were taken from [ROS documentation](http://docs.ros.org/indigo/api/loam_velodyne/html/files.html)
-
-Ask questions [here](https://github.com/laboshinl/loam_velodyne/issues/3).
-
-## How to build with catkin
-
-```
-$ cd ~/catkin_ws/src/
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">loam_velodyne</font></font></h1><a id="user-content-loam_velodyne" class="anchor" aria-label="永久链接： loam_velodyne" href="#loam_velodyne"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><a target="_blank" rel="noopener noreferrer" href="/laboshinl/loam_velodyne/blob/master/capture.bmp"><img src="/laboshinl/loam_velodyne/raw/master/capture.bmp" alt="截屏" style="max-width: 100%;"></a><font style="vertical-align: inherit;"></font><a href="http://www.frc.ri.cmu.edu/~jizhang03/Datasets/nsh_indoor_outdoor.bag" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">从nsh_indoor_outdoor.bag</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+构建的示例地图（使用</font></font><a href="http://www.danielgm.net/cc/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ccViewer</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">打开</font><font style="vertical-align: inherit;">）</font></font></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">✅ 使用 ROS Indigo 和 Velodyne VLP16 进行测试。</font></font><a href="https://youtu.be/o1cLXY-Es54" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">（截屏视频）</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">所有来源均取自</font></font><a href="http://docs.ros.org/indigo/api/loam_velodyne/html/files.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ROS 文档</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://github.com/laboshinl/loam_velodyne/issues/3" data-hovercard-type="issue" data-hovercard-url="/laboshinl/loam_velodyne/issues/3/hovercard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在这里</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">提问</font><font style="vertical-align: inherit;">。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何用柔荑花搭建</font></font></h2><a id="user-content-how-to-build-with-catkin" class="anchor" aria-label="永久链接：如何使用柔荑花构建" href="#how-to-build-with-catkin"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>$ cd ~/catkin_ws/src/
 $ git clone https://github.com/laboshinl/loam_velodyne.git
 $ cd ~/catkin_ws
 $ catkin_make -DCMAKE_BUILD_TYPE=Release 
 $ source ~/catkin_ws/devel/setup.bash
-```
-
-## Running
-
-```
-roslaunch loam_velodyne loam_velodyne.launch
-```
-
-In second terminal play sample velodyne data from [VLP16 rosbag](http://www.frc.ri.cmu.edu/~jizhang03/Datasets/):
-```
-rosbag play ~/Downloads/velodyne.bag 
-```
-
-Or read from velodyne [VLP16 sample pcap](https://midas3.kitware.com/midas/folder/12979):
-```
-roslaunch velodyne_pointcloud VLP16_points.launch pcap:="$HOME/Downloads/velodyne.pcap"
-```
-
-## Troubleshooting
-
-### `multiScanRegistration` crashes right after playing bag file
-
-Issues [#71](https://github.com/laboshinl/loam_velodyne/issues/71) and
-[#7](https://github.com/laboshinl/loam_velodyne/issues/7) address this
-problem. The current known solution is to build the same version of PCL that
-you have on your system from source, and set the `CMAKE_PREFIX_PATH`
-accordingly so that catkin can find it. See [this
-issue](https://github.com/laboshinl/loam_velodyne/issues/71#issuecomment-416024816)
-for more details.
-
-
----
-[Quantifying Aerial LiDAR Accuracy of LOAM for Civil Engineering Applications.](https://ceen.et.byu.edu/sites/default/files/snrprojects/wolfe_derek.pdf) Derek Anthony Wolfe
-
-[ROS & Loam_velodyne](https://ishiguro440.wordpress.com/2016/04/05/%E5%82%99%E5%BF%98%E9%8C%B2%E3%80%80ros-loam_velodyne/) 
+</code></pre><div class="zeroclipboard-container">
+     
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">跑步</font></font></h2><a id="user-content-running" class="anchor" aria-label="永久链接： 跑步" href="#running"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>roslaunch loam_velodyne loam_velodyne.launch
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="roslaunch loam_velodyne loam_velodyne.launch" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在第二个终端中播放来自</font></font><a href="http://www.frc.ri.cmu.edu/~jizhang03/Datasets/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">VLP16 rosbag</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的示例 velodyne 数据：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>rosbag play ~/Downloads/velodyne.bag 
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="rosbag play ~/Downloads/velodyne.bag " tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><font style="vertical-align: inherit;"></font><a href="https://midas3.kitware.com/midas/folder/12979" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">或者从 velodyne VLP16 示例 pcap</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中读取</font><font style="vertical-align: inherit;">：</font></font></p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>roslaunch velodyne_pointcloud VLP16_points.launch pcap:="$HOME/Downloads/velodyne.pcap"
+</code></pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="roslaunch velodyne_pointcloud VLP16_points.launch pcap:=&quot;$HOME/Downloads/velodyne.pcap&quot;" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">故障排除</font></font></h2><a id="user-content-troubleshooting" class="anchor" aria-label="永久链接：故障排除" href="#troubleshooting"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h3 tabindex="-1" class="heading-element" dir="auto"><code>multiScanRegistration</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">播放包文件后立即崩溃</font></font></h3><a id="user-content-multiscanregistration-crashes-right-after-playing-bag-file" class="anchor" aria-label="永久链接：multiScanRegistration 在播放包文件后立即崩溃" href="#multiscanregistration-crashes-right-after-playing-bag-file"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">问题</font></font><a href="https://github.com/laboshinl/loam_velodyne/issues/71" data-hovercard-type="issue" data-hovercard-url="/laboshinl/loam_velodyne/issues/71/hovercard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#71</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">和
+</font></font><a href="https://github.com/laboshinl/loam_velodyne/issues/7" data-hovercard-type="issue" data-hovercard-url="/laboshinl/loam_velodyne/issues/7/hovercard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">#7</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">解决了这个问题。</font><font style="vertical-align: inherit;">当前已知的解决方案是从源代码构建与系统上相同版本的 PCL，并进行</font></font><code>CMAKE_PREFIX_PATH</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+相应的设置，以便 catkin 可以找到它。</font><font style="vertical-align: inherit;">请参阅</font></font><a href="https://github.com/laboshinl/loam_velodyne/issues/71#issuecomment-416024816" data-hovercard-type="issue" data-hovercard-url="/laboshinl/loam_velodyne/issues/71/hovercard"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">此问题</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+了解更多详细信息。</font></font></p>
+<hr>
+<p dir="auto"><a href="https://ceen.et.byu.edu/sites/default/files/snrprojects/wolfe_derek.pdf" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">量化土木工程应用中 LOAM 的空中 LiDAR 精度。</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">德里克·安东尼·沃尔夫</font></font></p>
+<p dir="auto"><a href="https://ishiguro440.wordpress.com/2016/04/05/%E5%82%99%E5%BF%98%E9%8C%B2%E3%80%80ros-loam_velodyne/" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ROS 和 Loam_velodyne</font></font></a></p>
+</article></div>
